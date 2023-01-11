@@ -1,5 +1,6 @@
 import './App.css';
 import VideoList from './components/VideoList';
+import QueueToggle from './components/QueueToggle';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
     // Fetching video data from the YouTube API using the specified URL
     fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&q="official trailer"&maxResults=${maxResults}`
+      `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&q="Official Trailer"&maxResults=${maxResults}`
     )
       // Parsing the response to json
       .then((response) => response.json())
@@ -44,7 +45,12 @@ function App() {
       });
   }, []);
 
-  return <VideoList videos={videos} />;
+  return (
+    <>
+      <QueueToggle />
+      <VideoList videos={videos} />
+    </>
+  );
 }
 
 export default App;
