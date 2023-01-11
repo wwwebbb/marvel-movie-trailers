@@ -13,7 +13,7 @@ function App() {
     // Variable to access the API key from the .env file
     const apiKey = process.env.REACT_APP_YT_KEY;
     // Variable to limit the max number of returned results to 50
-    const maxResults = 100;
+    const maxResults = 50;
 
     // Fetching video data from the YouTube API using the specified URL
     fetch(
@@ -44,11 +44,7 @@ function App() {
       });
   }, []);
 
-  return (
-    <div>
-      <VideoList videos={videos} />
-    </div>
-  );
+  return <VideoList videos={videos} />;
 }
 
 export default App;
