@@ -5,12 +5,9 @@ const VideoList = ({ sortedYears, groupedVideos }) => {
     <div>
       {sortedYears.map((year) => (
         // use the year as the key for the div element
-        <div className="relative" key={year}>
+        <div id={year} className="relative" key={year}>
           {/*render the year heading in white*/}
-          <h2
-            id={year}
-            className="sticky top-0 z-[2] bg-zinc-900 text-white text-center text-lg p-5 mt-12 mb-4"
-          >
+          <h2 className="sticky top-0 z-[2] bg-zinc-900 text-white text-center text-lg p-5 mt-12 mb-4">
             {year}
           </h2>
           {/*use grid container to display videos*/}

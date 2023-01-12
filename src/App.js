@@ -1,7 +1,7 @@
 import './App.css';
 import VideoList from './components/VideoList';
 import YearSidebar from './components/YearSidebar';
-import MarvelLogo from './Marvel_Studios_2016_logo.svg.png';
+import MarvelLogo from './Marvel_Studios_2016_Transparent_Logo.webp';
 import { useEffect, useState } from 'react';
 
 function App() {
