@@ -1,6 +1,6 @@
 import './App.css';
 import VideoList from './components/VideoList';
-import QueueToggle from './components/QueueToggle';
+import YearSidebar from './components/YearSidebar';
 import MarvelLogo from './Marvel_Studios_2016_logo.svg.png';
 import { useEffect, useState } from 'react';
 
@@ -10,11 +10,8 @@ function App() {
 
   // useEffect hook that runs when the component mounts to fetch video data
   useEffect(() => {
-    // Variable for the YouTube channel id of the Marvel Entertainment channel
     const channelId = 'UCvC4D8onUfXzvjTOM-dBfEA';
-    // Variable to access the API key from the .env file
     const apiKey = process.env.REACT_APP_YT_KEY;
-    // Variable to limit the max number of returned results to 50
     const maxResults = 50;
 
     // Fetching video data from the YouTube API using the specified URL
@@ -36,8 +33,6 @@ function App() {
             .replace(/&#39;/g, "'")
             .replace(/&quot;/g, '"');
         });
-        // Logging the sorted video data to the console for debugging purposes
-        console.log(sortedVideos);
         // Updating the state variable with the sorted video data
         setVideos(sortedVideos);
       })
@@ -46,16 +41,32 @@ function App() {
       });
   }, []);
 
+  //group videos by year
+  const groupedVideos = videos.reduce((acc, video) => {
+    const year = video.snippet.publishTime.slice(0, 4);
+    // check if the year already exists in the accumulator object
+    if (!acc[year]) {
+      // if not, create an empty array for the year
+      acc[year] = [];
+    }
+    // push the video into the array for the corresponding year
+    acc[year].push(video);
+    return acc;
+  }, {});
+
+  // sort the years by descending order
+  const sortedYears = Object.keys(groupedVideos).sort().reverse();
+
   return (
     <>
       <img
         src={MarvelLogo}
         alt="Marvel Studios' Logo"
         style={{ height: '50px', width: '200px', objectFit: 'contain' }}
-        className="mx-auto"
+        className="mx-auto mt-5"
       />
-      <QueueToggle />
-      <VideoList videos={videos} />
+      <YearSidebar sortedYears={sortedYears} />
+      <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />
     </>
   );
 }

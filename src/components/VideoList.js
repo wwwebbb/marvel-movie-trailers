@@ -1,30 +1,18 @@
 import QueueButton from './QueueButton';
 
-const VideoList = ({ videos }) => {
-  // group videos by year
-  const groupedVideos = videos.reduce((acc, video) => {
-    // extract the year from the publishTime property
-    const year = video.snippet.publishTime.slice(0, 4);
-    // check if the year already exists in the accumulator object
-    if (!acc[year]) {
-      // if not, create an empty array for the year
-      acc[year] = [];
-    }
-    // push the video into the array for the corresponding year
-    acc[year].push(video);
-    return acc;
-  }, {});
-
-  // sort the years by descending order
-  const sortedYears = Object.keys(groupedVideos).sort().reverse();
-
+const VideoList = ({ sortedYears, groupedVideos }) => {
   return (
     <div>
       {sortedYears.map((year) => (
         // use the year as the key for the div element
-        <div key={year}>
+        <div className="relative" key={year}>
           {/*render the year heading in white*/}
-          <h2 className="text-white text-center text-lg pt-10 pb-4">{year}</h2>
+          <h2
+            id={year}
+            className="sticky top-0 z-[2] bg-zinc-900 text-white text-center text-lg p-5 mt-12 mb-4"
+          >
+            {year}
+          </h2>
           {/*use grid container to display videos*/}
           <div className="container mx-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-7">
             {groupedVideos[year].map((video, index) => (
