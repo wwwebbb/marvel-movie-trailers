@@ -1,6 +1,7 @@
 import './App.css';
 import VideoList from './components/VideoList';
 import QueueToggle from './components/QueueToggle';
+import MarvelLogo from './Marvel_Studios_2016_logo.svg.png';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -47,6 +48,12 @@ function App() {
 
   return (
     <>
+      <img
+        src={MarvelLogo}
+        alt="Marvel Studios' Logo"
+        style={{ height: '50px', width: '200px', objectFit: 'contain' }}
+        className="mx-auto"
+      />
       <QueueToggle />
       <VideoList videos={videos} />
     </>
