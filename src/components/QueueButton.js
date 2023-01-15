@@ -1,10 +1,6 @@
 const QueueButton = ({ video, isQueued, addToQueue, removeFromQueue }) => {
   const handleClick = () => {
-    if (isQueued) {
-      removeFromQueue(video);
-    } else {
-      addToQueue(video);
-    }
+    isQueued ? removeFromQueue(video) : addToQueue(video);
   };
 
   return (
