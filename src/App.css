@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.watch-queue-scrollbar::-webkit-scrollbar {
+  width: 0.3rem;
+  background-color: #f5f5f5;
+}
+.watch-queue-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #718096;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

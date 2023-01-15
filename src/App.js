@@ -1,10 +1,11 @@
+import { useEffect, useState } from 'react';
+
 import './App.css';
 import VideoList from './components/VideoList';
 import YearSidebar from './components/YearSidebar';
 import MarvelLogo from './Marvel_Studios_2016_Transparent_Logo.webp';
-import { useEffect, useState } from 'react';
-import WatchQueueProvider from './components/WatchQueueProvider';
-import WatchQueue from './components/WatchQueue';
+import WatchQueueProvider from './components/WatchQueue/WatchQueueProvider';
+import WatchQueue from './components/WatchQueue/WatchQueue';
 
 function App() {
   // Declaring state variable to store an array of video data

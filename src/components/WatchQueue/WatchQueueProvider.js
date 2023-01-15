@@ -12,7 +12,11 @@ const WatchQueueProvider = (props) => {
     setWatchQueue(watchQueue.filter((v) => v.id !== video.id));
   };
 
-  const value = { watchQueue, addToQueue, removeFromQueue };
+  const clearQueue = (video) => {
+    setWatchQueue([]);
+  };
+
+  const value = { watchQueue, addToQueue, removeFromQueue, clearQueue };
 
   return (
     <WatchQueueContext.Provider value={value}>

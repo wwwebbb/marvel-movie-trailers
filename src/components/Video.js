@@ -1,5 +1,5 @@
 import QueueButton from './QueueButton';
-import WatchQueueContext from './WatchQueueContext';
+import WatchQueueContext from './WatchQueue/WatchQueueContext';
 import { useContext } from 'react';
 
 const Video = ({ video, index }) => {
@@ -12,7 +12,6 @@ const Video = ({ video, index }) => {
       key={index}
       className="bg-zinc-800 container mx-auto max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 hover:bg-zinc-700 duration-100"
     >
-      {/* render video by embedding the YouTube video */}
       <iframe
         src={`https://www.youtube.com/embed/${video.id.videoId}`}
         title={video.snippet.title}
