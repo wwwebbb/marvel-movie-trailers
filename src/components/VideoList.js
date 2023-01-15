@@ -1,4 +1,4 @@
-import QueueButton from './QueueButton';
+import Video from './Video';
 
 const VideoList = ({ sortedYears, groupedVideos }) => {
   return (
@@ -13,31 +13,7 @@ const VideoList = ({ sortedYears, groupedVideos }) => {
           {/*use grid container to display videos*/}
           <div className="container mx-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-7">
             {groupedVideos[year].map((video, index) => (
-              <div
-                key={index}
-                className="bg-zinc-800 container mx-auto max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 hover:bg-zinc-700 duration-100"
-              >
-                {/* render video by embedding the YouTube video */}
-                <iframe
-                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                  title={video.snippet.title}
-                  border="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-64"
-                />
-                <div className="px-6 py-4 flex gap-x-3 justify-between">
-                  <div>
-                    <div className="text-white text-lg font-medium">
-                      {video.snippet.title}
-                    </div>
-                    <div className="text-slate-50 pt-1 text-sm font-light italic">
-                      {video.snippet.publishTime.slice(0, 10)}
-                    </div>
-                  </div>
-                  <QueueButton />
-                </div>
-              </div>
+              <Video video={video} index={index} />
             ))}
           </div>
         </div>
