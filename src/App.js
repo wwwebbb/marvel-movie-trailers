@@ -3,6 +3,8 @@ import VideoList from './components/VideoList';
 import YearSidebar from './components/YearSidebar';
 import MarvelLogo from './Marvel_Studios_2016_Transparent_Logo.webp';
 import { useEffect, useState } from 'react';
+import WatchQueueProvider from './components/WatchQueueProvider';
+import WatchQueue from './components/WatchQueue';
 
 function App() {
   // Declaring state variable to store an array of video data
@@ -66,7 +68,10 @@ function App() {
         className="mx-auto mt-5"
       />
       <YearSidebar sortedYears={sortedYears} />
-      <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />
+      <WatchQueueProvider>
+        <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />
+        <WatchQueue />
+      </WatchQueueProvider>
     </>
   );
 }

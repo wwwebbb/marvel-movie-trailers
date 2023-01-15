@@ -1,6 +1,12 @@
 import QueueButton from './QueueButton';
+import WatchQueueContext from './WatchQueueContext';
+import { useContext } from 'react';
 
 const Video = ({ video, index }) => {
+  const { watchQueue, addToQueue, removeFromQueue } =
+    useContext(WatchQueueContext);
+  const isQueued = watchQueue.some((v) => v.id === video.id);
+
   return (
     <div
       key={index}
@@ -24,7 +30,12 @@ const Video = ({ video, index }) => {
             {video.snippet.publishTime.slice(0, 10)}
           </div>
         </div>
-        <QueueButton />
+        <QueueButton
+          video={video}
+          isQueued={isQueued}
+          addToQueue={addToQueue}
+          removeFromQueue={removeFromQueue}
+        />
       </div>
     </div>
   );
