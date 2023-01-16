@@ -14,7 +14,17 @@ const WatchQueue = () => {
     setExpanded(null);
   };
 
-  if (watchQueue.length >= 1)
+  const truncateTitle = (title) => {
+    const truncatedTitle = title.replace(
+      /Marvel's|Marvel’s|Marvel Studios[']|Marvel Studios[’]?/gi,
+      ''
+    );
+    return truncatedTitle.length >= 38
+      ? truncatedTitle.slice(0, 38) + '...'
+      : truncatedTitle;
+  };
+
+  if (watchQueue.length >= 1) {
     return (
       <div
         className="accordion accordion-flush rounded fixed p-1 bg-gray-900 z-10 bottom-[.5rem] right-5"
@@ -36,9 +46,7 @@ const WatchQueue = () => {
                   type="button"
                   onClick={() => toggleExpanded(video.id.videoId)}
                 >
-                  {`${video.snippet.title
-                    .replace('Marvel Studios’', '')
-                    .slice(0, 38)}...`}
+                  {truncateTitle(video.snippet.title)}
                 </button>
               </h2>
               <div
@@ -70,6 +78,7 @@ const WatchQueue = () => {
         </button>
       </div>
     );
+  }
 };
 
 export default WatchQueue;

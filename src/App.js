@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import VideoList from './components/VideoList';
 import YearSidebar from './components/YearSidebar';
-import MarvelLogo from './Marvel_Studios_2016_Transparent_Logo.webp';
+import MarvelLogo from './media/Marvel_Studios_2016_Transparent_Logo.webp';
 import WatchQueueProvider from './components/WatchQueue/WatchQueueProvider';
 import WatchQueue from './components/WatchQueue/WatchQueue';
 
