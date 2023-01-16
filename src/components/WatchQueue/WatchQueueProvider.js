@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import WatchQueueContext from './WatchQueueContext';
 
 const WatchQueueProvider = (props) => {

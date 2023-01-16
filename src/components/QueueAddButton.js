@@ -1,4 +1,4 @@
-const QueueButton = ({ video, isQueued, addToQueue, removeFromQueue }) => {
+const QueueAddButton = ({ video, isQueued, addToQueue, removeFromQueue }) => {
   const handleClick = () => {
     isQueued ? removeFromQueue(video) : addToQueue(video);
   };
@@ -49,4 +49,4 @@ const QueueButton = ({ video, isQueued, addToQueue, removeFromQueue }) => {
   );
 };
 
-export default QueueButton;
+export default QueueAddButton;
