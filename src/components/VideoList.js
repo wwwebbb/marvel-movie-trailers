@@ -2,12 +2,12 @@ import Video from './Video';
 
 const VideoList = ({ sortedYears, groupedVideos }) => {
   return (
-    <div>
+    <div className="backdrop-blur-xl backdrop-brightness-50 pb-4">
       {sortedYears.map((year) => (
         // use the year as the key for the div element
         <div id={year} className="relative" key={year}>
           {/*render the year heading in white*/}
-          <h2 className="sticky top-0 z-[2] bg-zinc-900 text-white text-center text-lg p-5 mt-12 mb-4">
+          <h2 className="year-header sticky top-0 z-[1] backdrop-blur-2xl backdrop-brightness-[.2] text-white text-center text-lg p-5 mt-12 mb-4">
             {year}
           </h2>
           {/*use grid container to display videos*/}

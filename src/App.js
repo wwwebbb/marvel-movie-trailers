@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './App.css';
 
+import LandingScreen from './LandingScreen';
 import VideoList from './components/VideoList';
 import YearSidebar from './components/YearSidebar';
-import MarvelLogo from './media/Marvel_Studios_2016_Transparent_Logo.webp';
 import WatchQueueProvider from './components/WatchQueue/WatchQueueProvider';
 import WatchQueue from './components/WatchQueue/WatchQueue';
 
@@ -32,9 +32,17 @@ function App() {
         });
         // Replacing the &#39; and &quot; HTML entity codes with apostrophes and double quotes respectively
         sortedVideos.forEach((video) => {
-          video.snippet.title = video.snippet.title
-            .replace(/&#39;/g, "'")
-            .replace(/&quot;/g, '"');
+          if (
+            !/Time|Assembled|Teaser|Reveal|Launch|Announcement|First|Incoming|Making|Darkness|616|Hulu|Fox/gi.test(
+              video.snippet.title
+            )
+          ) {
+            video.snippet.title = video.snippet.title
+              .replace(/&#39;/g, "'")
+              .replace(/&quot;/g, '"');
+          } else {
+            sortedVideos.splice(sortedVideos.indexOf(video), 1);
+          }
         });
         // Updating the state variable with the sorted video data
         setVideos(sortedVideos);
@@ -60,19 +68,29 @@ function App() {
   // sort the years by descending order
   const sortedYears = Object.keys(groupedVideos).sort().reverse();
 
+  // Landing Screen stays in the background during scroll
+  const landingScreenRef = useRef(null);
+  const mainStyle = {
+    marginTop: landingScreenRef.current
+      ? landingScreenRef.current.offsetHeight
+      : 0,
+  };
+
   return (
     <>
-      <img
-        src={MarvelLogo}
-        alt="Marvel Studios' Logo"
-        style={{ height: '50px', width: '200px', objectFit: 'contain' }}
-        className="mx-auto mt-5"
-      />
-      <YearSidebar sortedYears={sortedYears} />
-      <WatchQueueProvider>
-        <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />
-        <WatchQueue />
-      </WatchQueueProvider>
+      <div
+        className="fixed top-0 left-0 w-full h-screen z-0"
+        ref={landingScreenRef}
+      >
+        <LandingScreen />
+      </div>
+      <main className="relative z-1 mt-1" style={mainStyle}>
+        <YearSidebar sortedYears={sortedYears} />
+        <WatchQueueProvider>
+          <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />
+          <WatchQueue />
+        </WatchQueueProvider>
+      </main>
     </>
   );
 }

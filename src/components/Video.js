@@ -10,7 +10,7 @@ const Video = ({ video, index }) => {
   return (
     <div
       key={index}
-      className="bg-zinc-800 container mx-auto max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 hover:bg-zinc-700 duration-100"
+      className="bg-zinc-800 bg-opacity-50 container mx-auto max-w-md rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:scale-105 hover:bg-zinc-700 duration-100"
     >
       <iframe
         src={`https://www.youtube.com/embed/${video.id.videoId}`}

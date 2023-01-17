@@ -14,7 +14,7 @@ const WatchQueue = () => {
   if (watchQueue.length >= 1) {
     return (
       <div
-        className="accordion accordion-flush rounded fixed p-1 bg-gray-900 z-10 bottom-[.5rem] right-5"
+        className="accordion accordion-flush rounded fixed p-1 backdrop-blur-lg backdrop-brightness-50 z-10 bottom-[.5rem] right-5"
         id="accordianWatchQueueList"
       >
         <h2 className="text-white text-center mb-1">Watch Queue</h2>
