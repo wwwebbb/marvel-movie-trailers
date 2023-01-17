@@ -13,7 +13,7 @@ const VideoList = ({ sortedYears, groupedVideos }) => {
           {/*use grid container to display videos*/}
           <div className="container mx-auto grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-7">
             {groupedVideos[year].map((video, index) => (
-              <Video video={video} index={index} />
+              <Video video={video} key={index} />
             ))}
           </div>
         </div>

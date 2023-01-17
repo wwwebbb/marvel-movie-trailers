@@ -1,5 +1,5 @@
 import QueueAddButton from './QueueAddButton';
-import WatchQueueContext from './WatchQueue/WatchQueueContext';
+import WatchQueueContext from '../WatchQueue/WatchQueueContext';
 import { useContext } from 'react';
 
 const Video = ({ video, index }) => {

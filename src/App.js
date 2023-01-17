@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import './App.css';
 
 import LandingScreen from './LandingScreen';
-import VideoList from './components/VideoList';
+import VideoList from './components/VideoList/VideoList';
 import YearSidebar from './components/YearSidebar';
 import WatchQueueProvider from './components/WatchQueue/WatchQueueProvider';
 import WatchQueue from './components/WatchQueue/WatchQueue';
