@@ -30,22 +30,21 @@ function App() {
             new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt)
           );
         });
-        // Replacing the &#39; and &quot; HTML entity codes with apostrophes and double quotes respectively
-        sortedVideos.forEach((video) => {
+        // Filtering irrelevant videos and replacing the &#39; and &quot; HTML entity codes with apostrophes and double quotes respectively
+        const filteredVideos = sortedVideos.filter(({ snippet }) => {
           if (
             !/Time|Assembled|Teaser|Reveal|Launch|Announcement|First|Incoming|Making|Darkness|616|Hulu|Fox/gi.test(
-              video.snippet.title
+              snippet.title
             )
           ) {
-            video.snippet.title = video.snippet.title
+            snippet.title = snippet.title
               .replace(/&#39;/g, "'")
               .replace(/&quot;/g, '"');
-          } else {
-            sortedVideos.splice(sortedVideos.indexOf(video), 1);
+            return true;
           }
+          return false;
         });
-        // Updating the state variable with the sorted video data
-        setVideos(sortedVideos);
+        setVideos(filteredVideos);
       })
       .catch((error) => {
         console.log(error);

@@ -16,16 +16,20 @@ const LandingScreenSection = () => {
       />
       <div className="absolute text-white inset-0 flex flex-col gap-2 items-center justify-center">
         <div className="trailers-text uppercase font-serif text-3xl duration-150">
-          Trailers
+          MCU Trailers
         </div>
         <div className="text-xs">
           <a
             href="https://github.com/wwwebbb"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textShadow: 'white 1px 0 10px' }}
+            style={{
+              textShadow: 'white 1px 0 10px',
+              letterSpacing: '2px',
+            }}
+            className="pl-[2px]"
           >
-            Built in React by Miles Webb
+            A React App by Miles Webb
           </a>
         </div>
       </div>
