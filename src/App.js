@@ -13,14 +13,8 @@ function App() {
 
   // useEffect hook that runs when the component mounts to fetch video data
   useEffect(() => {
-    const channelId = 'UCvC4D8onUfXzvjTOM-dBfEA';
-    const apiKey = process.env.REACT_APP_YT_KEY;
-    const maxResults = 50;
-
     // Fetching video data from the YouTube API using the specified URL
-    fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&q="Official Trailer"&maxResults=${maxResults}`
-    )
+    fetch(`http://localhost:8002/videos`)
       // Parsing the response to json
       .then((response) => response.json())
       .then((data) => {
