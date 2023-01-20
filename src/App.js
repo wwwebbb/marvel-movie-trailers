@@ -14,7 +14,7 @@ function App() {
   // useEffect hook that runs when the component mounts to fetch video data
   useEffect(() => {
     // Fetching video data from the YouTube API using the specified URL
-    fetch(`http://localhost:8002/videos`)
+    fetch(`https://marvel-movie-trailers.herokuapp.com/videos`)
       // Parsing the response to json
       .then((response) => response.json())
       .then((data) => {
