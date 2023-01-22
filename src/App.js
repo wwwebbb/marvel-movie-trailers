@@ -27,7 +27,7 @@ function App() {
         // Filtering irrelevant videos and replacing the &#39; and &quot; HTML entity codes with apostrophes and double quotes respectively
         const filteredVideos = sortedVideos.filter(({ snippet }) => {
           if (
-            !/Time|Assembled|Teaser|Reveal|Launch|Announcement|First|Incoming|Making|Darkness|616|Hulu|Fox/gi.test(
+            !/Time|Inhumans|FREEFALL|Assembled|Teaser|Reveal|Launch|Announcement|First|Incoming|Making|Darkness|616|Hulu|Fox|FX/gi.test(
               snippet.title
             )
           ) {

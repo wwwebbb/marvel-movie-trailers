@@ -2,7 +2,7 @@ import Video from './Video';
 
 const VideoList = ({ sortedYears, groupedVideos }) => {
   return (
-    <div className="backdrop-blur-xl backdrop-brightness-50 pb-4">
+    <div className="backdrop-blur-xl backdrop-brightness-50 pb-4 px-5">
       {sortedYears.map((year) => (
         // use the year as the key for the div element
         <div id={year} className="relative" key={year}>
