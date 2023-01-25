@@ -14,23 +14,9 @@ const LandingScreenSection = () => {
         alt="Marvel Studios' Logo"
         className="absolute top-10 inset-x-0 mx-auto h-16 w-64 object-contain"
       />
-      <div className="absolute text-white inset-0 flex flex-col gap-2 items-center justify-center">
-        <div className="trailers-text uppercase font-serif text-3xl duration-150">
+      <div className="absolute text-white inset-0 flex items-center justify-center">
+        <div className="trailers-text uppercase font-serif text-3xl duration-[.8s]">
           MCU Trailers
-        </div>
-        <div className="text-xs">
-          <a
-            href="https://github.com/wwwebbb"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              textShadow: 'white 1px 0 10px',
-              letterSpacing: '2px',
-            }}
-            className="pl-[2px]"
-          >
-            A React App by Miles Webb
-          </a>
         </div>
       </div>
       <svg className="arrows">

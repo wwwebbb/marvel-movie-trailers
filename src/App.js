@@ -43,6 +43,9 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
+    alert(
+      `If the page doesn't load, refresh to activate/awaken the Heroku Eco Dynos request`
+    );
   }, []);
 
   //group videos by year
