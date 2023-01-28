@@ -1,10 +1,10 @@
 const YearSidebar = ({ sortedYears }) => {
   return (
-    <div className=" text-center p-2 w-fit rounded-lg z-[2] top-1/4 fixed right-5 ml-5 backdrop-blur-md backdrop-brightness-75">
+    <div className=" text-center p-2 w-fit rounded-lg z-10 top-[15%] xl:top-1/4 fixed right-5 ml-5 backdrop-blur-md backdrop-brightness-75">
       <h3 className="text-white mb-2" style={{ textShadow: 'white 1px 0 5px' }}>
         Year
       </h3>
-      <ul className="h-40 lg:h-min overflow-y-auto mini-scrollbar">
+      <ul className="h-40 xl:h-min overflow-y-auto mini-scrollbar">
         {sortedYears.map((year) => (
           <li key={year}>
             <a

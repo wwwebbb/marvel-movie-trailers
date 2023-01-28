@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 import LandingScreen from './LandingScreen';
@@ -64,23 +64,12 @@ function App() {
   // sort the years by descending order
   const sortedYears = Object.keys(groupedVideos).sort().reverse();
 
-  // Landing Screen stays in the background during scroll
-  const landingScreenRef = useRef(null);
-  const mainStyle = {
-    marginTop: landingScreenRef.current
-      ? landingScreenRef.current.offsetHeight
-      : 0,
-  };
-
   return (
     <>
-      <div
-        className="fixed top-0 left-0 w-full h-screen z-0"
-        ref={landingScreenRef}
-      >
+      <div className="fixed top-0 left-0 w-full h-screen z-0">
         <LandingScreen />
       </div>
-      <main className="relative z-1 mt-1" style={mainStyle}>
+      <main className="relative z-1 mt-[100vh]">
         <YearSidebar sortedYears={sortedYears} />
         <WatchQueueProvider>
           <VideoList groupedVideos={groupedVideos} sortedYears={sortedYears} />

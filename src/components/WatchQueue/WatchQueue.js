@@ -18,7 +18,7 @@ const WatchQueue = () => {
         id="accordianWatchQueueList"
       >
         <h2 className="text-white text-center mb-1">Watch Queue</h2>
-        <div className="w-96 mini-scrollbar overflow-y-auto overflow-x-hidden max-h-60 lg:max-h-80">
+        <div className="mini-scrollbar overflow-y-auto overflow-x-hidden max-h-52 w-72 lg:max-h-80 lg:w-96">
           {watchQueue.map((video, index) => (
             <WatchQueueItem
               video={video}
