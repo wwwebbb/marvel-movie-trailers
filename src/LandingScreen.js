@@ -1,4 +1,4 @@
-import LandingScreen from './media/LandingScreenImg.png';
+import LandingScreen from './media/LandingScreenImg.jpg';
 import MarvelLogo from './media/Marvel_Studios_2016_Transparent_Logo.webp';
 
 const LandingScreenSection = () => {
